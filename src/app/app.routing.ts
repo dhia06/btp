@@ -1,3 +1,4 @@
+import { SignupComponent } from './views/signup/signup.component';
 import { NgModule } from '@angular/core';
 import { Routes, RouterModule } from '@angular/router';
 import { ClientComponent } from './client/client.component';
@@ -22,6 +23,11 @@ export const routes: Routes = [
   {
     path: 'Acceuil',
     component: ClientComponent,
+  
+  },
+  {
+    path: 'SignUp',
+    component: SignupComponent,
   
   },
   {

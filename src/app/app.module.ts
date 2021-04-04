@@ -53,6 +53,7 @@ import { MatButtonModule } from '@angular/material/button';
 import { MatRippleModule } from '@angular/material/core';
 import {MatInputModule} from '@angular/material/input';
 import { STEPPER_GLOBAL_OPTIONS } from '@angular/cdk/stepper';
+import { SignupComponent } from './views/signup/signup.component';
 
 
 
@@ -97,6 +98,7 @@ import { STEPPER_GLOBAL_OPTIONS } from '@angular/cdk/stepper';
     LoginComponent,
     RegisterComponent,
     ClientComponent,
+    SignupComponent,
    
    
   ],
