@@ -3,12 +3,7 @@
   "compileOnSave": false,
   "compilerOptions": {
     "importHelpers": true,
-    "paths": {
-      "dynamic-stepper": [
-        "dist/dynamic-stepper/dynamic-stepper",
-        "dist/dynamic-stepper"
-      ]
-    },
+    "paths": {},
     "outDir": "./dist/out-tsc",
     "sourceMap": true,
     "declaration": false,
@@ -17,7 +12,6 @@
     "experimentalDecorators": true,
     "module": "es2020",
     "target": "es2015",
-  
     "typeRoots": [
       "node_modules/@types"
     ],

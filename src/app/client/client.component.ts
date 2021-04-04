@@ -28,29 +28,94 @@ export class ClientComponent implements OnInit {
 
 
     Swal.fire({
-      title: 'Login Form',
-      html: `<input type="text" id="username" class="swal2-input" placeholder="Username">
-      <input type="password" id="password" class="swal2-input" placeholder="Password">`,
-      confirmButtonText: 'Sign in',
-      focusConfirm: false,
-      preConfirm: () => {
-        this.user.username = (<HTMLInputElement>document.getElementById('userName')).value;
-        
-       this.user.password = (<HTMLInputElement>document.getElementById('password')).value;
-        if (!this.username || !this.password) {
-          Swal.showValidationMessage(`Please enter login and password`)
-        }
-        return { login: this.username, password: this.password }
-      }
-    }).then((result) => {
-      Swal.fire(`
-        Login: ${result.value.login}
-        Password: ${result.value.password}
-      `.trim())
-    })
+      input: 'text',
+      confirmButtonText: 'Next &rarr;',
+      showCancelButton: true,
+      animation: true,
+      progressSteps: ['1', '2', '3']
+  });
 
+  var steps = [
+      {
+          title: 'sign up',
+          
+         
+          html: `
+        <form>
+      
+     
+        <input   type="text"  placeholder="ENTRER VOTRE USERNAME " id="userName"   class="swal2-input" requiredinput>
+       
+       <input type="password" placeholder="ENTRER VOTRE PASSWORD" id="password"   class="swal2-input" required>
+      
+       <input  type: "email" placeholder="ENTRER UN EMAIL VALIDE" id="email"  type="email" 
+        size="30" required class="swal2-input" pattern='[a-z0-9._%+-]+@[a-z0-9.-]+\.[a-z]{2,}$'>
+       
+       <input 
+        type: "text" size placeholder="ENTRER VOTRE NUMERO DE TELEPHONE"   id="phoneNumber" class="swal2-input"  required minlength="12" maxlength="12">
+       
+       </form>
+       `,
+          preConfirm: function(value)
+          {
+              return new Promise<void>(function(resolve, reject)
+              {
+                  if (value) {
+                      resolve();
+                  } else {
+                      reject('Please type something in the step 1!');
+                  }
+              });
+          }
+      },
+      {
+          title: 'Sales Person',
+          text: 'Product sold by?',
+          preConfirm: function(value)
+          {
+              return new Promise<void>(function(resolve, reject)
+              {
+                  if (value) {
+                      resolve();
+                  } else {
+                      reject('Please type something in the step 2!');
+                  }
+              });
+          }
 
+      },
+      {
+          title: 'Additional Details',
+          text: 'Coments or additional notes',
+          preConfirm: function(value)
+          {
+              return new Promise<void>(function(resolve, reject)
+              {
+                  if (value) {
+                      resolve();
+                  } else {
+                      reject('Please type something in the step 3!');
+                  }
+              });
+          }
+      },
 
+  ];
+
+  Swal.queue(steps).then(function (result) {
+     // Swal.resetDefaults();
+      Swal.fire({
+          title: 'All done!',
+          html:
+              'Your answers: <pre>' +
+              (result) +
+              '</pre>',
+          confirmButtonText: 'Lovely!',
+          showCancelButton: false
+      })
+  }, function () {
+      //Swal.resetDefaults()
+  });
 
     // Swal.fire({
       
