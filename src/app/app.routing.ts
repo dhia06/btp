@@ -4,6 +4,8 @@ import { ClientComponent } from './client/client.component';
 
 // Import Containers
 import { DefaultLayoutComponent } from './containers';
+import { StepperComponent } from './stepper/stepper.component';
+
 
 import { P404Component } from './views/error/404.component';
 import { P500Component } from './views/error/500.component';
@@ -11,6 +13,11 @@ import { LoginComponent } from './views/login/login.component';
 import { RegisterComponent } from './views/register/register.component';
 
 export const routes: Routes = [
+  {
+    path: 'stepper',
+    component: StepperComponent,
+    
+  },
 
   {
     path: 'Acceuil',
@@ -43,6 +50,7 @@ export const routes: Routes = [
       title: 'Login Page'
     }
   },
+  
   {
     path: 'register',
     component: RegisterComponent,
@@ -50,6 +58,7 @@ export const routes: Routes = [
       title: 'Register Page'
     }
   },
+  
   {
     path: '',
     component: DefaultLayoutComponent,

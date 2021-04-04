@@ -1,0 +1,98 @@
+<mat-vertical-stepper [linear]="isLinear" #stepper>
+    <mat-step [stepControl]="firstFormGroup">
+      <form [formGroup]="firstFormGroup">
+        <ng-template matStepLabel>Identity</ng-template>
+        <mat-form-field>
+                    <mat-label>Name</mat-label>
+                    <input matInput placeholder="Last name, First name" required
+                    [(ngModel)]="signuplastname" #last="ngModel" name="lastname"
+                    type="text"
+                    maxlength="32"
+                    minlength="3"
+                    pattern="[A-Za-z0-9\-_\-.]{3,32}"/>
+                    <div class="alert alert-danger" *ngIf="last.invalid && last.touched">
+                      <div *ngIf="last.errors.required">Lastname is required</div>
+                      <div *ngIf="last.errors.pattern"> Invalid lastname </div>
+                    </div>
+        </mat-form-field>
+  <br>
+    <mat-form-field>
+        <mat-label>Firstname</mat-label>
+        <input  matInput placeholder="firstname" required [(ngModel)]="signufirstname" #lastt="ngModel" name="firstname"
+        maxlength="32"
+        minlength="3"
+        pattern="[A-Za-z0-9\-_\-.]{3,32}"/>
+        <div class="alert alert-danger" *ngIf="lastt.invalid && lastt.touched">
+          <div *ngIf="lastt.errors.required">Firstname is required</div>
+          <div *ngIf="lastt.errors.pattern"> Invalid firstname </div>
+        </div>
+    </mat-form-field>
+    <br>
+    <mat-form-field>
+    <mat-label>Email</mat-label>
+    <input matInput placeholder="Email" required [(ngModel)]="signInEmail" #t="ngModel" name="email"
+      type="email"
+      pattern='[a-z0-9._%+-]+@[a-z0-9.-]+\.[a-z]{2,}$'
+    />
+    <div class="alert alert-danger" *ngIf="t.invalid && t.touched">
+      <div *ngIf="t.errors.required">Email is required</div>
+      <div *ngIf="t.errors.pattern"> Invalid Email </div>
+    </div>
+</mat-form-field>
+<br>
+<mat-form-field>
+<mat-label>Number</mat-label>
+<input  matInput placeholder="+21623558138" required [(ngModel)]="signunumber" #nb="ngModel" name="number"
+type="text"
+maxlength="12"
+minlength="12"
+pattern="^[+216][0-9]{10}"/>
+<div class="alert alert-danger" *ngIf="nb.invalid && nb.touched">
+  <div *ngIf="nb.errors.required">Phone number is required</div>
+  <div *ngIf="nb.errors.pattern"> Invalid phone number </div>
+</div>
+</mat-form-field>
+<br>
+<mat-form-field>
+<mat-label>datedenaissance</mat-label>
+<input matInput placeholder="11/04/1997" required id="datedenaissance" type="date" ngModel  name="datedenaissance">
+</mat-form-field>
+<br>
+<mat-form-field>
+    <mat-label>password</mat-label>
+<input matInput placeholder="password" required id="hh" type="password" ngModel  name="password">
+</mat-form-field>
+<br>
+<mat-form-field>
+    <mat-label>Confirm your password</mat-label>
+<input matInput placeholder="retype your password" required id="hh" type="password" ngModel name="plainTextPassword">
+</mat-form-field>
+<br><br><br><br><br><br><br>
+<div>
+    <button mat-button matStepperNext>Next</button>
+  </div>
+  <br><br>
+      </form>
+    </mat-step>
+    <mat-step label="Fill out your coordinates">
+      <form [formGroup]="secondFormGroup">
+        <mat-form-field>
+          <mat-label>Address</mat-label>
+          <input matInput  placeholder="Ex. 1 Main St, New York, NY"
+                 required>
+        </mat-form-field>
+        <div>
+          <button mat-button matStepperPrevious>Back</button>
+          <button mat-button matStepperNext>Next</button>
+        </div>
+      </form>
+    </mat-step>
+    <mat-step>
+      <ng-template matStepLabel>Done</ng-template>
+      <p>You are now done.</p>
+      <div>
+        <button mat-button matStepperPrevious>Back</button>
+        <button mat-button (click)="stepper.reset()">Reset</button>
+      </div>
+    </mat-step>
+</mat-vertical-stepper>

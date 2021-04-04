@@ -23,6 +23,8 @@ import { P500Component } from './views/error/500.component';
 import { LoginComponent } from './views/login/login.component';
 import { RegisterComponent } from './views/register/register.component';
 
+import { ErrorInterceptorService } from './views/error-interceptor/error-interceptor.service';
+
 const APP_CONTAINERS = [
   DefaultLayoutComponent
 ];
@@ -43,6 +45,18 @@ import { BsDropdownModule } from 'ngx-bootstrap/dropdown';
 import { TabsModule } from 'ngx-bootstrap/tabs';
 import { ChartsModule } from 'ng2-charts';
 import { ClientComponent } from './client/client.component';
+import {MatDialogModule} from '@angular/material/dialog';
+import { HttpClientModule, HTTP_INTERCEPTORS } from '@angular/common/http';
+import { MatStepperModule} from '@angular/material/stepper';
+
+import { MatButtonModule } from '@angular/material/button';
+import { MatRippleModule } from '@angular/material/core';
+import {MatInputModule} from '@angular/material/input';
+import { STEPPER_GLOBAL_OPTIONS } from '@angular/cdk/stepper';
+
+
+
+
 
 @NgModule({
   imports: [
@@ -60,6 +74,20 @@ import { ClientComponent } from './client/client.component';
     ChartsModule,
     IconModule,
     IconSetModule.forRoot(),
+    MatDialogModule,
+    HttpClientModule,
+    MatStepperModule,
+    MatButtonModule,
+    MatInputModule,
+    MatRippleModule,
+    
+ 
+   
+
+
+
+
+    
   ],
   declarations: [
     AppComponent,
@@ -68,13 +96,24 @@ import { ClientComponent } from './client/client.component';
     P500Component,
     LoginComponent,
     RegisterComponent,
-    ClientComponent
+    ClientComponent,
+   
+   
   ],
   providers: [
     {
       provide: LocationStrategy,
-      useClass: HashLocationStrategy
+      useClass: HashLocationStrategy,
     },
+    {
+      provide: HTTP_INTERCEPTORS,
+      useClass: ErrorInterceptorService,
+      multi: true
+      },
+      {
+        provide: STEPPER_GLOBAL_OPTIONS,
+        useValue: { showError: true }
+      },
     IconSetService,
   ],
   bootstrap: [ AppComponent ]

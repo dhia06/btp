@@ -69,11 +69,23 @@
 	</style>
 	
 	
+	
 
 		<ul>
-			<li
-				 routerLink="/register"><button class="book-btn">Sign Up</button>>
-			</li><!--/.project-btn--> 
+			<!-- Include the Material Ui theme -->
+			
+			<li> <div class="dropdown">
+				<button class="book-btn" type="button" id="dropdownMenuButton" data-toggle="dropdown" aria-haspopup="true" aria-expanded="false">
+				  Sign Up
+				</button>
+				<div class="dropdown-menu" aria-labelledby="dropdownMenuButton">
+				  <a ><button class="book-btn" (click)="signupp()">Sign Up Client </button></a>
+				  <a ><button class="book-btn" (click)="login()">Sign Up Pro</button></a></div>
+			  </div></li>
+			
+			<li><button class="book-btn" (click)="login()">Sign in</button></li>
+			
+		<!--/.project-btn--> 
 			<li class="smooth-menu"><a href="#gallery">Destination</a></li>
 			<li class="smooth-menu"><a href="#pack">Packages </a></li>
 			<li class="smooth-menu"><a href="#spo">Special Offers</a></li>
@@ -89,7 +101,6 @@
 	</ul>
 
 
-****
 
 
 
@@ -109,7 +120,7 @@
 						<!--div>-/.navbar-collapse -->
 
 
-
+						
 
 
 
@@ -1364,6 +1375,7 @@
 
 		</section><!--/.special-offer end-->
 		<!--special-offer end-->
+	
 
 		<!--blog start-->
 		<section id="blog" class="blog">

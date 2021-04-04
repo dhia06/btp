@@ -212,6 +212,7 @@ export const navItems: INavData[] = [
         url: '/register',
         icon: 'icon-star'
       },
+      
       {
         name: 'Error 404',
         url: '/404',
