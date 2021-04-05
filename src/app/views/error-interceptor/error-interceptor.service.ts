@@ -11,6 +11,7 @@ export class ErrorInterceptorService implements HttpInterceptor {
   constructor() { }
   handleError(error: HttpErrorResponse) {
     console.log("Lerror mte3na ",error.message ==="User not found");
+    Swal.showValidationMessage(`Oupps!You Entred Invalid Credentiels`)
     
   if(error.message === "User Not found"){
     Swal.showValidationMessage(`user famech!`);

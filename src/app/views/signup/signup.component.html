@@ -17,10 +17,9 @@
         <div class="col-md-5 pr-lg-5 mb-5 mb-md-0">
             <img src="https://res.cloudinary.com/mhmd/image/upload/v1569543678/form_d9sh6m.svg" alt="" class="img-fluid mb-3 d-none d-md-block">
             <h1>Create an Account</h1>
-            <p class="font-italic text-muted mb-0">Create a minimal registeration page using Bootstrap 4 HTML form elements.</p>
-            <p class="font-italic text-muted">Snippet By <a href="https://bootstrapious.com" class="text-muted">
-                <u>Bootstrapious</u></a>
+            <p class="font-italic text-muted mb-0">WELCOME TO BRAIN CONSULT PLATEFORM! WE HOPE THAT YOU ENJOY YOUR EXPERIENCE WITH US . 
             </p>
+           
         </div>
 
         <!-- Registeration Form -->
@@ -53,13 +52,13 @@
                                 <i class="fa fa-envelope text-muted"></i>
                             </span>
                         </div>
-                        <input #email="ngModel" required type="email" name="email" [(ngModel)]="user.email" placeholder="Email Address" class="form-control bg-white border-left-0 border-md">
+                        <input pattern='[a-z0-9._%+-]+@[a-z0-9.-]+\.[a-z]{2,}$' #email="ngModel" required type="email" name="email" [(ngModel)]="user.email" placeholder="Email Address" class="form-control bg-white border-left-0 border-md">
                     </div>
 
                     <div *ngIf="email.invalid && (email.dirty || email.touched)"
                     class="alert alert-danger">
                 
-                  <div *ngIf="username.errors.required">
+                  <div *ngIf="email.errors.required" >
                     email is required.
                   </div>
                 </div>
@@ -98,8 +97,8 @@
                             </span>
                         </div>
                         <select id="countryCode" name="countryCode" style="max-width: 80px" class="custom-select form-control bg-white border-left-0 border-md h-100 font-weight-bold text-muted">
-                            <option value="">+12</option>
-                            <option value="">+10</option>
+                            <option value="">+216</option>
+                            <option value="">+33</option>
                             <option value="">+15</option>
                             <option value="">+18</option>
                         </select>
@@ -157,7 +156,7 @@
                                 <i class="fa fa-lock text-muted"></i>
                             </span>
                         </div>
-                        <input id="passwordConfirmation" type="text" name="passwordConfirmation" placeholder="Confirm Password" class="form-control bg-white border-left-0 border-md">
+                        <input id="passwordConfirmation" type="password" name="passwordConfirmation" placeholder="Confirm Password" class="form-control bg-white border-left-0 border-md">
                     </div>
 
                     <!-- Submit Button -->
