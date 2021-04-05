@@ -18,6 +18,7 @@ export class SignupComponent implements OnInit {
   }
 
   submit(user:User){
-    this.registerService.register(user);
+    console.log("OLAA");
+    // this.registerService.register(user).subscribe();
   }
 }

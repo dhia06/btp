@@ -25,18 +25,26 @@
 
         <!-- Registeration Form -->
         <div class="col-md-7 col-lg-6 ml-auto">
-            <form>
+            <form  #form="ngForm" (ngSubmit)="onSubmit(form.invalid)">
                 <div class="row">
 
-                    <!-- First Name -->
+                    <!-- UserName Name -->
                     <div class="input-group col-lg-6 mb-4">
                         <div class="input-group-prepend">
                             <span class="input-group-text bg-white px-4 border-md border-right-0">
                                 <i class="fa fa-user text-muted"></i>
                             </span>
                         </div>
-                        <input id="username" type="text" name="username"  [(ngModel)]="user.username" placeholder="username" class="form-control bg-white border-left-0 border-md">
+                        <input type="text" #username="ngModel" name="username" required [(ngModel)]="user.username" placeholder="username" class="form-control bg-white border-left-0 border-md">
                     </div>
+
+                    <div *ngIf="username.invalid && (username.dirty || username.touched)"
+                    class="alert alert-danger">
+                
+                  <div *ngIf="username.errors.required">
+                    username is required.
+                  </div>
+                </div>
 
                        <!-- Email Address -->
                     <div class="input-group col-lg-6 mb-4">
@@ -45,8 +53,16 @@
                                 <i class="fa fa-envelope text-muted"></i>
                             </span>
                         </div>
-                        <input id="email" type="email" name="email" [(ngModel)]="user.email" placeholder="Email Address" class="form-control bg-white border-left-0 border-md">
+                        <input #email="ngModel" required type="email" name="email" [(ngModel)]="user.email" placeholder="Email Address" class="form-control bg-white border-left-0 border-md">
                     </div>
+
+                    <div *ngIf="email.invalid && (email.dirty || email.touched)"
+                    class="alert alert-danger">
+                
+                  <div *ngIf="username.errors.required">
+                    email is required.
+                  </div>
+                </div>
 
                     <!-- Phone Number -->
                     <div class="input-group col-lg-12 mb-4">
@@ -61,8 +77,16 @@
                             <option value="">+15</option>
                             <option value="">+18</option>
                         </select>
-                        <input id="phoneNumber" type="tel" name="phone" [(ngModel)]="user.phonenumber" placeholder="Phone Number" class="form-control bg-white border-md border-left-0 pl-3">
+                        <input #phonenumber="ngModel" required type="text" name="phone" [(ngModel)]="user.phonenumber" placeholder="Phone Number" class="form-control bg-white border-md border-left-0 pl-3">
                     </div>.
+
+                    <div *ngIf="phonenumber.invalid && (phonenumber.dirty || phonenumber.touched)"
+                    class="alert alert-danger">
+                
+                  <div *ngIf="phonenumber.errors.required">
+                    phonenumber is required.
+                  </div>
+                </div>
 
 
                     <!-- Job -->
@@ -88,8 +112,17 @@
                                 <i class="fa fa-lock text-muted"></i>
                             </span>
                         </div>
-                        <input id="password" type="password" name="password" [(ngModel)]="user.password" placeholder="Password" class="form-control bg-white border-left-0 border-md">
+                        <input #password="ngModel" required type="password" name="password" [(ngModel)]="user.password" placeholder="Password" class="form-control bg-white border-left-0 border-md">
                     </div>
+
+                    
+                    <div *ngIf="password.invalid && (password.dirty || password.touched)"
+                    class="alert alert-danger">
+                
+                  <div *ngIf="password.errors.required">
+                    password is required.
+                  </div>
+                </div>
 
                     <!-- Password Confirmation -->
                     <div class="input-group col-lg-6 mb-4">
