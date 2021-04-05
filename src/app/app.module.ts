@@ -1,3 +1,4 @@
+import { FormsModule } from '@angular/forms';
 import { BrowserModule } from '@angular/platform-browser';
 import { NgModule } from '@angular/core';
 import { LocationStrategy, HashLocationStrategy } from '@angular/common';
@@ -81,6 +82,7 @@ import { SignupComponent } from './views/signup/signup.component';
     MatButtonModule,
     MatInputModule,
     MatRippleModule,
+    FormsModule,
     
  
    
