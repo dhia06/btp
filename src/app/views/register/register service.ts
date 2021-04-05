@@ -12,6 +12,8 @@ const API_LINK3 = 'http://localhost:3000/auth/login'
 export class RegisterService {
   constructor(  private http: HttpClient) { }
   register(user: User){
+    console.log("fi wost regiset");
+    console.log(user);
     return this.http.post(API_LINK1, user);
   }
   singUpverif(user: User) {

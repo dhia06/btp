@@ -19,6 +19,7 @@ export class SignupComponent implements OnInit {
   }
 
   submit(user:User){
-    this.registerService.register(user);
+    console.log("fi wost submit");
+    this.registerService.register(user).subscribe();
   }
 }
